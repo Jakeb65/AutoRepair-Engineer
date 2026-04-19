@@ -445,7 +445,12 @@ const Dashboard: React.FC = () => {
     <div className="dashboard-container">
       <header className="dashboard-header">
         <h1>🔧 AutoRepair</h1>
-        <button onClick={handleLogout} disabled={loadingLogout} className="btn-logout">
+        <button
+          onClick={handleLogout}
+          disabled={loadingLogout}
+          className="btn-logout"
+          data-e2e="HomeScreen-logout-button"
+        >
           {loadingLogout ? 'Wylogowywanie...' : 'Wyloguj'}
         </button>
       </header>

@@ -1,3 +1,0 @@
-// Katalog dla Page Object klas
-// Każda strona aplikacji powinna mieć swój własny plik Page Object
-// Przykład: LoginPage.ts, DashboardPage.ts, AppointmentsPage.ts

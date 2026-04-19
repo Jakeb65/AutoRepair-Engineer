@@ -45,19 +45,20 @@ const LoginScreen: React.FC = () => {
   }
 
   return (
-    <div className="auth-container">
-      <div className="auth-box">
+    <div className="auth-container" data-e2e="LoginScreen-root-container">
+      <div className="auth-box" data-e2e="LoginScreen-box-container">
         <h1>🔧 AutoRepair</h1>
         <h2>Logowanie do systemu</h2>
 
-        {error && <div className="alert alert-error">{error}</div>}
-        {success && <div className="alert alert-success">{success}</div>}
+        {error && <div className="alert alert-error" data-e2e="LoginScreen-error-alert">{error}</div>}
+        {success && <div className="alert alert-success" data-e2e="LoginScreen-success-alert">{success}</div>}
 
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleLogin} data-e2e="LoginScreen-login-form">
           <div className="form-group">
             <label htmlFor="email">Adres email:</label>
             <input
               id="email"
+              data-e2e="LoginScreen-email-input"
               type="text"
               inputMode="email"
               autoComplete="username"
@@ -76,6 +77,7 @@ const LoginScreen: React.FC = () => {
             <label htmlFor="password">Hasło:</label>
             <input
               id="password"
+              data-e2e="LoginScreen-password-input"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -84,16 +86,31 @@ const LoginScreen: React.FC = () => {
             />
           </div>
 
-          <button type="submit" disabled={loading} className="btn-primary">
+          <button
+            type="submit"
+            disabled={loading}
+            className="btn-primary"
+            data-e2e="LoginScreen-login-submit-button"
+          >
             {loading ? 'Logowanie w toku...' : 'Zaloguj się'}
           </button>
         </form>
 
         <div className="auth-links">
-          <button type="button" onClick={() => navigate('/reset-password')} className="link-button">
+          <button
+            type="button"
+            onClick={() => navigate('/reset-password')}
+            className="link-button"
+            data-e2e="LoginScreen-reset-password-button"
+          >
             Zapomniałem hasła
           </button>
-          <button type="button" onClick={() => navigate('/register')} className="link-button">
+          <button
+            type="button"
+            onClick={() => navigate('/register')}
+            className="link-button"
+            data-e2e="LoginScreen-register-button"
+          >
             Rejestracja nowego konta
           </button>
         </div>
