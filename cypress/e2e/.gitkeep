@@ -1,6 +1,0 @@
-// Katalog dla specyfikacji testów E2E pogrupowanych domenowo
-// Przykład struktury:
-//   cypress/e2e/smoke/
-//   cypress/e2e/auth/
-//   cypress/e2e/appointments/
-//   cypress/e2e/invoices/

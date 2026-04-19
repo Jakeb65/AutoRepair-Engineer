@@ -29,11 +29,16 @@ When needed, bootstrap the full Cypress stack from scratch, including project st
 3. Encapsulate selectors and UI interactions inside Page Objects, not in spec files.
 4. Keep assertions close to business intent and readable for non-authors.
 5. Use custom Cypress commands only when they reduce repetition and improve clarity.
-6. Use data-testid style selectors as preferred locator strategy.
-7. Avoid brittle selectors based on styling, text-only matching, or dynamic class names.
-8. Avoid fixed waits unless there is no deterministic alternative.
-9. Use network interception strategically for synchronization and contract-level checks.
-10. Keep one clear test purpose per test case.
+6. Use data-e2e selectors as the preferred locator strategy.
+7. When referring to any UI element in tests, add or use a dedicated `data-e2e` attribute directly on that element in the source code.
+8. The `data-e2e` naming convention is mandatory and must follow:
+	`ScreenOrFileName-field-name-actionOrType`
+9. Example selector format:
+	`data-e2e="LoginScreen-email-input"`
+10. Avoid brittle selectors based on styling, text-only matching, or dynamic class names.
+11. Avoid fixed waits unless there is no deterministic alternative.
+12. Use network interception strategically for synchronization and contract-level checks.
+13. Keep one clear test purpose per test case.
 
 ## Recommended Project Structure
 1. cypress/e2e for specs grouped by domain.
