@@ -84,19 +84,20 @@ const RegisterScreen: React.FC = () => {
   }
 
   return (
-    <div className="auth-container">
-      <div className="auth-box">
+    <div className="auth-container" data-e2e="RegisterScreen-root-container">
+      <div className="auth-box" data-e2e="RegisterScreen-box-container">
         <h1>🔧 AutoRepair</h1>
         <h2>Rejestracja nowego konta</h2>
 
-        {error && <div className="alert alert-error">{error}</div>}
-        {success && <div className="alert alert-success">{success}</div>}
+        {error && <div className="alert alert-error" data-e2e="RegisterScreen-error-alert">{error}</div>}
+        {success && <div className="alert alert-success" data-e2e="RegisterScreen-success-alert">{success}</div>}
 
-        <form onSubmit={handleRegister}>
+        <form onSubmit={handleRegister} data-e2e="RegisterScreen-register-form">
           <div className="form-group">
             <label htmlFor="email">Adres email:</label>
             <input
               id="email"
+              data-e2e="RegisterScreen-email-input"
               type="text"
               inputMode="email"
               autoComplete="username"
@@ -115,6 +116,7 @@ const RegisterScreen: React.FC = () => {
             <label htmlFor="imie">Imię:</label>
             <input
               id="imie"
+              data-e2e="RegisterScreen-first-name-input"
               type="text"
               value={imie}
               onChange={(e) => setImie(e.target.value)}
@@ -127,6 +129,7 @@ const RegisterScreen: React.FC = () => {
             <label htmlFor="nazwisko">Nazwisko:</label>
             <input
               id="nazwisko"
+              data-e2e="RegisterScreen-last-name-input"
               type="text"
               value={nazwisko}
               onChange={(e) => setNazwisko(e.target.value)}
@@ -139,6 +142,7 @@ const RegisterScreen: React.FC = () => {
             <label htmlFor="password">Hasło:</label>
             <input
               id="password"
+              data-e2e="RegisterScreen-password-input"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -146,22 +150,37 @@ const RegisterScreen: React.FC = () => {
               disabled={loading}
             />
             {password && (
-              <div className={`password-strength password-strength--${getPasswordStrength(password).level}`}>
+              <div
+                className={`password-strength password-strength--${getPasswordStrength(password).level}`}
+                data-e2e="RegisterScreen-password-strength-text"
+              >
                 Siła hasła: <span>{getPasswordStrength(password).label}</span>
               </div>
             )}
             {password && (
-              <div className="password-requirements">
-                <div className={getPasswordRequirements(password).length ? 'req req--ok' : 'req req--bad'}>
+              <div className="password-requirements" data-e2e="RegisterScreen-password-requirements-container">
+                <div
+                  className={getPasswordRequirements(password).length ? 'req req--ok' : 'req req--bad'}
+                  data-e2e="RegisterScreen-password-requirement-length"
+                >
                   • Minimum 8 znaków
                 </div>
-                <div className={getPasswordRequirements(password).uppercase ? 'req req--ok' : 'req req--bad'}>
+                <div
+                  className={getPasswordRequirements(password).uppercase ? 'req req--ok' : 'req req--bad'}
+                  data-e2e="RegisterScreen-password-requirement-uppercase"
+                >
                   • Wielka litera
                 </div>
-                <div className={getPasswordRequirements(password).number ? 'req req--ok' : 'req req--bad'}>
+                <div
+                  className={getPasswordRequirements(password).number ? 'req req--ok' : 'req req--bad'}
+                  data-e2e="RegisterScreen-password-requirement-number"
+                >
                   • Cyfra
                 </div>
-                <div className={getPasswordRequirements(password).special ? 'req req--ok' : 'req req--bad'}>
+                <div
+                  className={getPasswordRequirements(password).special ? 'req req--ok' : 'req req--bad'}
+                  data-e2e="RegisterScreen-password-requirement-special"
+                >
                   • Znak specjalny
                 </div>
               </div>
@@ -172,6 +191,7 @@ const RegisterScreen: React.FC = () => {
             <label htmlFor="confirmPassword">Powtórz hasło:</label>
             <input
               id="confirmPassword"
+              data-e2e="RegisterScreen-confirm-password-input"
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
@@ -181,19 +201,30 @@ const RegisterScreen: React.FC = () => {
             {confirmPassword && (
               <div
                 className={`password-match ${password === confirmPassword ? 'password-match--ok' : 'password-match--bad'}`}
+                data-e2e="RegisterScreen-password-match-text"
               >
                 {password === confirmPassword ? 'Hasła są zgodne' : 'Hasła są różne'}
               </div>
             )}
           </div>
 
-          <button type="submit" disabled={loading} className="btn-primary">
+          <button
+            type="submit"
+            disabled={loading}
+            className="btn-primary"
+            data-e2e="RegisterScreen-register-submit-button"
+          >
             {loading ? 'Rejestracja w toku...' : 'Zarejestruj się'}
           </button>
         </form>
 
         <div className="auth-links">
-          <button type="button" onClick={() => navigate('/login')} className="link-button">
+          <button
+            type="button"
+            onClick={() => navigate('/login')}
+            className="link-button"
+            data-e2e="RegisterScreen-login-button"
+          >
             Masz już konto? Zaloguj się
           </button>
         </div>
