@@ -1,18 +1,7 @@
 {
-  "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "cy:run:smoke": "cypress run --spec 'cypress/e2e/smoke/**/*.cy.ts'",
-    "cy:run:regression": "cypress run --spec 'cypress/e2e/**/*.cy.ts'",
-    "cy:run:headed": "cypress run --headed",
-    "cy:run:ci": "cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports/html,overwrite=false,html=true,json=true"
-  },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "three": "^0.182.0"
-  },
-  "devDependencies": {
-    "cypress": "^15.14.0"
   }
 }
